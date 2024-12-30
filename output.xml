@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.11.9 on win32)" generated="2024-10-23T07:45:29.610557" rpa="false" schemaversion="5">
+<suite id="s1" name="TC1 PUTRequest" source="C:\Users\Admin\PycharmProjects\APIAutomation\TestCases\TC1_PUTRequest.robot">
+<test id="s1-t1" name="post request_users" line="13">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-23T07:45:29.991007" level="INFO">${header} = {'Content-Type': 'application/json', 'User-Agent': 'RobotFramework', 'Authorization': 'Bearer 6efe93f3831c124eb8caf7e62ce03f33f3c36fcfe80b41056bf29c685239e41b'}</msg>
+<var>${header}</var>
+<arg>Content-Type=${content_type}</arg>
+<arg>User-Agent=RobotFramework</arg>
+<arg>Authorization=Bearer ${bearer_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-23T07:45:29.991007" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-10-23T07:45:29.991007" level="INFO">Creating Session using : alias=mysession, url=https://gorest.co.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-10-23T07:45:29.991007" elapsed="0.000000"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2024-10-23T07:45:30.371055" level="INFO">PUT Request : url=https://gorest.co.in/public/v2/users/7484387 
+ path_url=/public/v2/users/7484387 
+ headers={'User-Agent': 'RobotFramework', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 6efe93f3831c124eb8caf7e62ce03f33f3c36fcfe80b41056bf29c685239e41b', 'Content-Length': '78'} 
+ body={"name":"Ammu", "email":"xyx@gmail.com", "gender":"female", "status":"active"} 
+ </msg>
+<msg time="2024-10-23T07:45:30.371055" level="INFO">PUT Response : url=https://gorest.co.in/public/v2/users/7484387 
+ status=422, reason=Unprocessable Entity 
+ headers={'Date': 'Wed, 23 Oct 2024 02:15:30 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '54', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '89', 'x-ratelimit-reset': '1', 'x-request-id': 'b8c6cffa-2e50-4b76-ba47-fb84f41dcf4d', 'x-runtime': '0.166082', 'x-xss-protection': '0', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=b4cKmR7qZYBkh7ZFY%2BYpUzlhXnqjEDB8it5cZSK9IDE4q4O7mOqSZthXoyyob04peH%2B94rhPff2bYSKr1DcTdLdifQFsORZ1X7T59n9D2wvkjPfPIn8Ane32M08%2FhS8%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '8d6e383e08d23c12-BLR', 'alt-svc': 'h3=":443"; ma=86400', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=2094&amp;sent=4&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2613&amp;recv_bytes=1017&amp;delivery_rate=1168356&amp;cwnd=251&amp;unsent_bytes=0&amp;cid=1d65e1baa2e1dfe3&amp;ts=271&amp;x=0"'} 
+ body=[{"field":"email","message":"has already been taken"}] 
+ </msg>
+<msg time="2024-10-23T07:45:30.371055" level="INFO">C:\Users\Admin\PycharmProjects\APIAutomation\.venv\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gorest.co.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-10-23T07:45:30.377028" level="FAIL">HTTPError: 422 Client Error: Unprocessable Entity for url: https://gorest.co.in/public/v2/users/7484387</msg>
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/public/v2/users/7484387</arg>
+<arg>data={"name":"Ammu", "email":"xyx@gmail.com", "gender":"female", "status":"active"}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2024-10-23T07:45:29.991007" elapsed="0.386021">HTTPError: 422 Client Error: Unprocessable Entity for url: https://gorest.co.in/public/v2/users/7484387</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-10-23T07:45:30.377028" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-10-23T07:45:30.377028" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-23T07:45:29.991007" elapsed="0.386021">HTTPError: 422 Client Error: Unprocessable Entity for url: https://gorest.co.in/public/v2/users/7484387</status>
+</test>
+<status status="FAIL" start="2024-10-23T07:45:29.610557" elapsed="0.766471"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC1 PUTRequest">TC1 PUTRequest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
